@@ -15,27 +15,41 @@ class HashTable:
 	# This should return the value associated with the key, 
 	# raise KeyError if key not present
 	def lookup(self, key):
-		if key is not in self.table:
-			return "error"
+		if key not in self.table:
+			return null
 		else:
-			return self.key
+			return self.table[key]
 
 	# What should this return? Up to you. Maybe no return?
 	# You should use CHAINING here to resolve collisions.
 	def assign(self, key, value):
-		self.table.key = value
-		
+		if key in self.table:
+			self.table[key].append(value)
+		else:
+			self.table.append(my_hash_fn(key))
+			val = self.table[my_hash_fn(key)].append(value)
 
-print("henry has a huge left bicep it's so juicy")
+# WHAT IS THE SINTAX SUPPOSED TO BE THERE ^^^^^
+
+
+def henrysgiantcalffunction(size):
+	print("henry has a huge left calf it's so juicy its " + str(size))
+
+def eganssgiantbicepfunction(size):
+	print("egan has a huge right bicep it's so juicy its " + str(size))
 
 def henrysgiantcalf(henryleg):
 	jonahface = 69
+	teeronleg = jonahface - 10
 	if henryleg == teeronleg:
 		return jonahface
 
 
 
-Usage:
+#Usage:
+
+henrysgiantcalffunction(8)
+eganssgiantbicepfunction(69)
 
 d = HashTable(my_hash_fn)
 d.assign("winston", 100)
